@@ -1,5 +1,8 @@
 {
   "name": "hello-world-webcomponent",
+  "version": "1.0.0",
+  "author": "Wasuwat Limsuparhat <wasuwat.se@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "serve -s demo/",
     "build:js": "rollup -c",
