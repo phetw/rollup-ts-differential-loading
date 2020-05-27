@@ -1,0 +1,26 @@
+{
+  "name": "hello-world-webcomponent",
+  "scripts": {
+    "serve": "serve -s demo/",
+    "build:js": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:watch": "watch 'npm run build && npm run copy' src/",
+    "build": "npm run build:types && npm run build:js",
+    "copy": "copyfiles -f './dist/**/*.js' demo/js"
+  },
+  "main": "dist/hello-world-webcomponent.js",
+  "module": "dist/hello-world-webcomponent.js",
+  "types": "dist/types/hello-world-webcomponent.d.ts",
+  "devDependencies": {
+    "@babel/core": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@rollup/plugin-babel": "^5.0.2",
+    "copyfiles": "^2.2.0",
+    "rollup": "^2.10.9",
+    "rollup-plugin-terser": "^6.1.0",
+    "serve": "^11.3.1",
+    "typescript": "^3.9.3",
+    "watch": "^1.0.2"
+  }
+}
