@@ -25,7 +25,7 @@ export default [
       terser(),
     ],
     output: {
-      file: 'dist/hello-world-webcomponent.legacy.js',
+      file: 'dist/hello-world-webcomponent.min.js',
       format: 'es',
     },
   },
@@ -36,8 +36,7 @@ export default [
         extensions: ['.ts'],
         include: ['src/**/*'],
         presets: ['@babel/preset-typescript'],
-      }),
-      terser(),
+      })
     ],
     output: {
       file: 'dist/hello-world-webcomponent.js',

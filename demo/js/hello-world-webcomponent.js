@@ -1,1 +1,41 @@
-class e extends HTMLElement{constructor(){super();const n=document.createElement("template");n.innerHTML=e.template(),this.attachShadow({mode:"open"}),this.shadowRoot&&this.shadowRoot.appendChild(n.content.cloneNode(!0))}connectedCallback(){console.log("Halo ")}static template(){return"\n        <style>\n            div {\n                position: relative;\n                display: flex;\n                justify-content: center;\n                align-items: center;\n                width: 200px;\n                height: 200px;\n                background-color: pink;\n            }\n        </style>\n        <div>\n            <span>Halo </span><slot></slot>\n        </div>"}}customElements.define("hello-world-webcomponent",e);export{e as HelloWorldWebcomponent};
+const hello = 'Halo ';
+class HelloWorldWebcomponent extends HTMLElement {
+  constructor() {
+    super();
+    const template = document.createElement('template');
+    template.innerHTML = HelloWorldWebcomponent.template();
+    this.attachShadow({
+      mode: 'open'
+    });
+
+    if (this.shadowRoot) {
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+  }
+
+  connectedCallback() {
+    console.log(hello);
+  }
+
+  static template() {
+    return `
+        <style>
+            div {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+            }
+        </style>
+        <div>
+            <span>${hello}</span><slot></slot>
+        </div>`;
+  }
+
+}
+customElements.define('hello-world-webcomponent', HelloWorldWebcomponent);
+
+export { HelloWorldWebcomponent };
